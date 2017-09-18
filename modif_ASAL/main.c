@@ -2,11 +2,33 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
-#include "includes/double_ended_linkedlist.h"
-#include "includes/file_methods.h"
 
+#define MEMORY_UNAVILABLE -1
+#define EMPTY_BUFFER -2
+#define NO_FILE -3
+#define FILE_NOT_SAVED -4
+/*-----Structures required to store file information-----*/
+struct doubleEndedNode{
+    char *data;
+    unsigned char deletedStatus;
+    struct doubleEndedNode *previous;
+    struct doubleEndedNode *next;
+};
+/*------------Function Prototypes--------------*/
+struct doubleEndedNode* createDoubleEndedNode(char *data, struct doubleEndedNode *previous, struct doubleEndedNode *next);
+struct doubleEndedNode* addNodeToBeginning(struct doubleEndedNode *head, char *data);
+struct doubleEndedNode* readFile(FILE* fileName, struct doubleEndedNode *head);
+struct doubleEndedNode* removeFileFromMemory(struct doubleEndedNode *fileBuffer);
+void printFileList(struct doubleEndedNode *head);
+struct doubleEndedNode* reverseFileList(struct doubleEndedNode *head);
+struct doubleEndedNode* printDuplicatesInFileList(struct doubleEndedNode *head);
+struct doubleEndedNode* removeDuplicatesFromFileList(struct doubleEndedNode *head);
+unsigned int countFileLines(struct doubleEndedNode *head);
+unsigned int countFileChars(struct doubleEndedNode *head);
+int countFileWords(struct doubleEndedNode *head);
+void saveFileList(struct doubleEndedNode *head, char* path);
 
-
+/*---------------------------------------------*/
 int main(int argCount, char *arguments[]){
 
     char function;
