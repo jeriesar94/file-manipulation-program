@@ -358,32 +358,35 @@ unsigned int countFileLines(struct doubleEndedNode *head){
 //Function to count words in file
 int countFileWords(struct doubleEndedNode *head){
     struct doubleEndedNode *cursor = head;
-    int prev = 1;
     int i = 0;
-    char c = '\0';
     int wordsCounter = 0;
-    //Check STRTOK for word counting functionality
-    while(cursor != NULL){
-        c = cursor->data[i];
-        if((c != ' ' && c != '\n' && c != '\0') && prev == 1){
-                wordsCounter++;
-                prev = 0;
-        }
-        else if(c == '\n' || c == ' ' || c == '\t'){
-            prev = 1;
-        }
-        i++;
-        if(c == '\0'){
-            cursor = cursor->next;
-            i = 0;
-        }
+    char *temp = malloc(sizeof(char));
+    char *tokens;
+    if(temp == NULL){
+        printf("Not Enough Memory!\n");
+        exit(MEMORY_UNAVILABLE);
     }
+    while(cursor != NULL){
+        i = strlen(cursor->data);
+        temp = realloc(temp, (i+1)*sizeof(char));
+        if(temp == NULL){
+            printf("Not Enough Memory!\n");
+            exit(MEMORY_UNAVILABLE);
+        }
+        strcpy(temp, cursor->data);
+        tokens = strtok(temp, " \n\t");
+        while(tokens != NULL){
+            wordsCounter++;
+            tokens = strtok(NULL, " \n\t");
+        }
+        cursor = cursor->next;
+    }
+    free(temp);
     printf("\n\n-------------------------COUNT INFORMATION-------------------------\n\n");
     printf("Words count is: %d \n", wordsCounter);
     printf("\n\n----------------------END OF COUNT INFORMATION---------------------\n\n");
     return wordsCounter;
 }
-
 //Function to save changes to file and exit the program
 void saveFileList(struct doubleEndedNode *head, char* path){
     FILE *fileName;
