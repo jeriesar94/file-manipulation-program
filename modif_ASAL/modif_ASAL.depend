@@ -23,3 +23,27 @@
 
 1505685618 e:\users\jeries\desktop\desktop files\desktop files 4-9-2017\modif_asal\modif_asal\file_methods.h
 
+1505729644 source:c:\users\jabedrabbo\workspace\file-manipulation-program-split-to-headers\modif_asal\file_methods.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"includes/file_methods.h"
+	"includes/double_ended_linkedlist.h"
+
+1505718289 source:c:\users\jabedrabbo\workspace\file-manipulation-program-split-to-headers\modif_asal\double_ended_linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	"includes/double_ended_linkedlist.h"
+
+1505650410 c:\users\jabedrabbo\workspace\file-manipulation-program-split-to-headers\modif_asal\includes\double_ended_linkedlist.h
+
+1505718833 source:c:\users\jabedrabbo\workspace\file-manipulation-program-split-to-headers\modif_asal\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"includes/double_ended_linkedlist.h"
+	"includes/file_methods.h"
+
+1505650410 c:\users\jabedrabbo\workspace\file-manipulation-program-split-to-headers\modif_asal\includes\file_methods.h
+
