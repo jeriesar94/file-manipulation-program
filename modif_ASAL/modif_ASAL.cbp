@@ -31,6 +31,8 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="includes/double_ended_linkedlist.h" />
+		<Unit filename="includes/file_methods.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
