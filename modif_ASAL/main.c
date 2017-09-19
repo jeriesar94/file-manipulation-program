@@ -324,7 +324,7 @@ unsigned int countFileChars(struct doubleEndedNode *head){
     unsigned int i = 0;
     struct doubleEndedNode *cursor = head;
     while(cursor != NULL){
-            if(cursor->data[i] != '\n' && cursor ->data[i] != '\0'){
+            if(cursor ->data[i] != '\0'){
                 charsWithSpace++;
                 if(cursor->data[i] != ' '){
                     charsWithoutSpace++;
