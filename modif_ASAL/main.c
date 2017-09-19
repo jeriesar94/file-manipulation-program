@@ -374,10 +374,10 @@ int countFileWords(struct doubleEndedNode *head){
             exit(MEMORY_UNAVILABLE);
         }
         strcpy(temp, cursor->data);
-        tokens = strtok(temp, " \n\t");
+        tokens = strtok(temp, " \r\n\t");
         while(tokens != NULL){
             wordsCounter++;
-            tokens = strtok(NULL, " \n\t");
+            tokens = strtok(NULL, " \r\n\t");
         }
         cursor = cursor->next;
     }
