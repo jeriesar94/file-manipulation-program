@@ -4,7 +4,7 @@
 #include <string.h>
 #include "includes/double_ended_linkedlist.h"
 #include "includes/file_methods.h"
-
+#include "includes/_error.h"
 
 
 int main(int argCount, char *arguments[]){

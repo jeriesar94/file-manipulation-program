@@ -3,7 +3,7 @@
 #include <string.h>
 #include "includes/file_methods.h"
 #include "includes/double_ended_linkedlist.h"
-
+#include "includes/_error.h"
 
 //Read file and load it to a linked list and store it in memory.
 struct doubleEndedNode* readFile(FILE* fileName, struct doubleEndedNode *head){

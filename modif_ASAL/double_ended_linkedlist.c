@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "includes/double_ended_linkedlist.h"
-
-#define MEMORY_UNAVILABLE -1
+#include "includes/_error.h"
 
 //Function to create a linked list double ended node
 struct doubleEndedNode* createDoubleEndedNode(char *data, struct doubleEndedNode *previous, struct doubleEndedNode *next){
