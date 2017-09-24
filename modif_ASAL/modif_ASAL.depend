@@ -52,3 +52,32 @@
 
 1505905675 c:\users\jabedrabbo\workspace\file-manipulation-program-split-to-headers\modif_asal\includes\_error.h
 
+1506289837 source:e:\users\jeries\desktop\file-manipulation-program-count-words-using-strtok\modif_asal\double_ended_linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	"includes/double_ended_linkedlist.h"
+	"includes/_error.h"
+
+1505870456 e:\users\jeries\desktop\file-manipulation-program-count-words-using-strtok\modif_asal\includes\double_ended_linkedlist.h
+
+1505870456 e:\users\jeries\desktop\file-manipulation-program-count-words-using-strtok\modif_asal\includes\_error.h
+
+1505870456 source:e:\users\jeries\desktop\file-manipulation-program-count-words-using-strtok\modif_asal\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"includes/double_ended_linkedlist.h"
+	"includes/file_methods.h"
+	"includes/_error.h"
+
+1505870456 e:\users\jeries\desktop\file-manipulation-program-count-words-using-strtok\modif_asal\includes\file_methods.h
+
+1506289976 source:e:\users\jeries\desktop\file-manipulation-program-count-words-using-strtok\modif_asal\file_methods.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"includes/file_methods.h"
+	"includes/double_ended_linkedlist.h"
+	"includes/_error.h"
+
