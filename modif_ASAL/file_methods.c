@@ -7,7 +7,6 @@
 
 //Read file and load it to a linked list and store it in memory.
 struct doubleEndedNode* readFile(FILE* fileName, struct doubleEndedNode *head){
-    //This is not done, continue working on it tomorrow consider pointer to pointer or pointer array
     struct doubleEndedNode *temp = head;
     char c = fgetc(fileName);
     int i = 0;
@@ -24,14 +23,13 @@ struct doubleEndedNode* readFile(FILE* fileName, struct doubleEndedNode *head){
             }
         }
         if((c != '\n' && c != '\r' && c != '\t') && (c < 32 || c > 126)){
-            printf("\n%d\n", c);
             printf("\nUnsupported File Format!\n");
             exit(UNSUPPORTED_FORMAT);
         }
         head->data[i] = c;
         head->data[i+1] = '\0';
         i++;
-        if(c == '\n'){
+        if(c == '\n' || c == '\r'){
             temp = head;
             head = NULL;
             i = 0;
@@ -87,17 +85,19 @@ unsigned int countFileChars(struct doubleEndedNode *head){
     unsigned int i = 0;
     struct doubleEndedNode *cursor = head;
     while(cursor != NULL){
-            if(/*cursor->data[i] != '\n' && */cursor ->data[i] != '\0'){
+        if(cursor ->data[i] != '\0'){
+            if(cursor->data[i] != '\n' && cursor->data[i] != '\r' && cursor->data[i] != '\t'){
                 charsWithSpace++;
                 if(cursor->data[i] != ' '){
                     charsWithoutSpace++;
                 }
-                i++;
             }
-            else{
-                cursor = cursor->next;
-                i = 0;
-            }
+            i++;
+        }
+        else{
+            cursor = cursor->next;
+            i = 0;
+        }
     }
     printf("\n\n-------------------------COUNT INFORMATION-------------------------\n\n");
     printf("Characters without spaces:\t %d\n", charsWithoutSpace);
@@ -108,14 +108,11 @@ unsigned int countFileChars(struct doubleEndedNode *head){
 //Function to count words in file
 int countFileWords(struct doubleEndedNode *head){
     struct doubleEndedNode *cursor = head;
-    //int prev = 1;
     int i = 0;
-   // char c = '\0';
     int wordsCounter = 0;
-    //char character;
-    //Check STRTOK for word counting functionality
     char *temp = malloc(sizeof(char));
     char *tokens;
+  
     if(temp == NULL){
         printf("Not Enough Memory!\n");
         exit(MEMORY_UNAVILABLE);
@@ -133,45 +130,9 @@ int countFileWords(struct doubleEndedNode *head){
             wordsCounter++;
             tokens = strtok(NULL, " \r\n\t");
         }
-        //printf("%s", temp);
         cursor = cursor->next;
     }
     free(temp);
-    //printf("%s", temp);
-//    if(cursor != NULL){
-//        temp = realloc(temp, (strlen(cursor->data)+1)*sizeof(char));
-//        strcpy(temp, cursor->data);
-//        tokens = strtok(temp, " \n,");
-//        cursor = cursor->next;
-//    }
-//    while(cursor != NULL){
-//            while(tokens != NULL){
-//                tokens = strtok(NULL, " \n,");
-//                //printf("%s-", tokens);
-//                //if()
-//                wordsCounter++;
-//            }
-//            temp = realloc(temp, (strlen(cursor->data)+1)*sizeof(char));
-//            strcpy(temp, cursor->data);
-//            tokens = strtok(temp, " \n,");
-//            cursor = cursor->next;
-//    }
-//    free(temp);
-//    while(cursor != NULL){
-//        c = cursor->data[i];
-//        if((c != ' ' && c != '\n' && c != '\0') && prev == 1){
-//                wordsCounter++;
-//                prev = 0;
-//        }
-//        else if(c == '\n' || c == ' ' || c == '\t'){
-//            prev = 1;
-//        }
-//        i++;
-//        if(c == '\0'){
-//            cursor = cursor->next;
-//            i = 0;
-//        }
-//    }
     printf("\n\n-------------------------COUNT INFORMATION-------------------------\n\n");
     printf("Words count is: %d \n", wordsCounter);
     printf("\n\n----------------------END OF COUNT INFORMATION---------------------\n\n");
@@ -272,7 +233,6 @@ struct doubleEndedNode* reverseFileList(struct doubleEndedNode *head){
         tempCursor->previous = head;
     }
     head = tempCursor;
-    printf("%s", head->data);
     printf("\n\nFile is Reversed\n\n");
     return head;
 }

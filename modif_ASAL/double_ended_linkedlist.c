@@ -24,7 +24,6 @@ struct doubleEndedNode* createDoubleEndedNode(char *data, struct doubleEndedNode
 //Function to append node to head of list
 struct doubleEndedNode* addNodeToBeginning(struct doubleEndedNode *head, char *data){
 
-    //struct doubleEndedNode *currentBeginningNodePrevious = head->previous;
     struct doubleEndedNode *newBeginnningNode = createDoubleEndedNode(data, NULL, head);
 
     //Make current old beginning Node point it's previous to the new beginning node.
