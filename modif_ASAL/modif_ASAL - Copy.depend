@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1505066796 source:e:\users\jeries\documents\modif_asal\modif_asal\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+
+1505138045 source:e:\users\jeries\desktop\modif_asal\modif_asal\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+
