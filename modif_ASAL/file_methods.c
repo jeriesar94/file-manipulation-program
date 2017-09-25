@@ -112,7 +112,7 @@ int countFileWords(struct doubleEndedNode *head){
     int wordsCounter = 0;
     char *temp = malloc(sizeof(char));
     char *tokens;
-  
+
     if(temp == NULL){
         printf("Not Enough Memory!\n");
         exit(MEMORY_UNAVILABLE);
@@ -133,6 +133,7 @@ int countFileWords(struct doubleEndedNode *head){
         cursor = cursor->next;
     }
     free(temp);
+
     printf("\n\n-------------------------COUNT INFORMATION-------------------------\n\n");
     printf("Words count is: %d \n", wordsCounter);
     printf("\n\n----------------------END OF COUNT INFORMATION---------------------\n\n");
