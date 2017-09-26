@@ -6,32 +6,23 @@ readonly test_file=$2
 function run_test {
 	var=$(echo "wlcq" | $1 "$2")
 	error_code=$(($?-256))
+	error_causes_array=()
+
+	error_causes_array[1]="Error $error_code: Test failed, because memory isn't available!"
+	error_causes_array[2]="Error $error_code: Test failed, because file is empty!"
+	error_causes_array[3]="Error $error_code: Test failed, because file was not found!"
+	error_causes_array[5]="Error $error_code: Test failed, file input to the test program has a format which is not supported!"
 
 	if [[ $var == *"Reading File..."* && $var == *"File is ready."* && $var == *"Words count is:"* && $var == *"Number of lines in file:"* && $var == *"Characters without spaces:"* && $var == *"Characters with spaces:"* ]] ; then
 		echo
 		echo "Result:	Test was successfull!"
 		echo
 		exit 0
-	elif [ $error_code -eq -1 ]; then
+	elif [ $error_code -lt 0 ]; then
 		echo
-		echo "Error $error_code: Test failed, because memory isn't available!"
+		echo ${error_causes_array[$((-1 * $error_code))]}
 		echo
-		exit -1
-	elif [ $error_code -eq -2 ]; then
-		echo
-		echo "Error $error_code: Test failed, because file is empty!"
-		echo
-		exit -2
-	elif [ $error_code -eq -3 ]; then
-		echo
-		echo "Error $error_code: Test failed, because file was not found!"
-		echo
-		exit -3
-	elif [ $error_code -eq -5 ]; then
-		echo
-		echo "Error $error_code: Test failed, file input to the test program has a format which is not supported!"
-		echo
-		exit -5
+		exit $error_code
 	else
 		echo
 		echo "Result:	Test failed!"
